@@ -1,0 +1,23 @@
+{
+  "name": "pipstop",
+  "version": "1.0.0",
+  "description": "Web application for pipstop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafayK-code/Pipstop.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RafayK-code/Pipstop/issues"
+  },
+  "homepage": "https://github.com/RafayK-code/Pipstop#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "path": "^0.12.7"
+  }
+}
