@@ -1,55 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Registration</title>
+ <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .profile-container {
-            width: 500px;
-            height: 500px;
-            border: 1px solid #000;
-            position: relative;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-        }
-        .profile-image {
-            width: 60px;
-            height: 60px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            border-radius: 50%; /* Optional: Makes the image round */
-        }
-        h3 {
-            margin-top: 0;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <div class="profile-container">
-        <h3>&lt;NAME&gt; PROFILE</h3>
-        <p>Name: &lt;NAME&gt;</p>
-        <p>Health: &lt;HEALTH_INFO&gt;</p>
-        <p>Social: &lt;SOCIAL_INFO&gt;</p>
-        <p>Fun: &lt;FUN_INFO&gt;</p>
-        <img 
-            src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" 
-            alt="Profile Picture" 
-            class="profile-image"
-        />
+        <h3>Your Profile</h3>
+
+        <label for="name">Name:</label>
+        <input class="input-box" type="text" id="name" name="name" placeholder="Sophia Tong" readonly>
+
+        <label for="phone">Phone Number:</label>
+        <input class="input-box" type="tel" id="phone" name="phone" placeholder="6478017132" readonly>
+
+        <label for="email">Email:</label>
+        <input class="input-box" type="email" id="email" name="email" placeholder="sophiatong113@gmail.com" readonly>
+
+        <img src="images/monkey.png" alt="Profile Picture" class="profile-image" />
+
+        <a href="/index"><button class="profile-btn" type="submit">OK</button></a>
+        </form>
     </div>
+
 </body>
 </html>
+

@@ -106,7 +106,7 @@ const server = http.createServer((req, res) => {
                 res.end(content);
             }
         });
-        
+
     } else {
         // Define the file path based on the URL
         let filePath = 'register.html'; // Default file path
@@ -140,6 +140,9 @@ const server = http.createServer((req, res) => {
                 break;
             case '/terms':
                 filePath = 'terms.html';
+                break;
+            case '/logout':
+                filePath = 'register.html';
                 break;
         }
 
