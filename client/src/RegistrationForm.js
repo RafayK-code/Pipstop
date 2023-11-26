@@ -1,75 +1,65 @@
 import React, { useState } from 'react';
 
-const RegistrationForm = () => {
-  const [formValues, setFormValues] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    teamName: '',
-  });
-
-const [account, setAccount] = useState(null);
+const RegistrationForm = (props) => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
  // Event handler for form input changes
-const handleChange = (e) => {
-  const { name, value } = e.target; 
-  setFormValues((prevValues) => ({
-    ...prevValues,
-    [name]: value,
-  }));
-};
-
 const handleSubmit = (e) => {
-  e.preventDefault()
-
-  const newAccount = { ...formValues};
+  e.preventDefault();
+  console.log('Account Created');
+};
     // Perform form validation and submission logic here
     // I still need prevent default
     //Take the form and build a json object
     // Submit in post using axios
-  setAccount(newAccount);
-  console.log('Account Created:', newAccount);
-  };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className ="registration-form">
         <h1>Register Now</h1>
-        <label>
+        <label htmlFor="firstName">
           <input 
           class="input-box" 
-          type="text"
+          name ="name"
           placeholder="First Name"
-          value = {formValues.firstName}
-          onChange={handleChange}
+          value = {firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          id ="name"
           />
         </label>
-        <label>
+        <label htmlFor="lastName">
           <input 
           class="input-box" 
-          type="text" 
+          name = "name"
           placeholder="Last Name"
-          value ={formValues.lastName}
-          onChange={handleChange}
+          value ={lastName}
+          onChange={(e) => setLastName(e.target.value)} 
+          id = "name"
           />
         </label>
-        <label>
+        <label htmlFor="email">
           <input
             class="input-box" 
-            type="text" 
+            name = "email"
+            type = "email"
             placeholder="Email"
-            value = {formValues.email}
-            onChange={handleChange}
+            value = {email}
+            onChange={(e) => setEmail(e.target.value)}
+            id = "email"
           />
         </label>
-        <label>
+        <label htmlFor ="phoneNumber">
           <input
             input class="input-box" 
-            type="text" name="phoneNumber" 
+            type="phoneNumber" 
+            name="phoneNumber" 
             placeholder="Phone Number"
-            value={formValues.phone}
-            onChange={handleChange}
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            id = "email"
           />
         </label>
       <button class="register-btn" type="submit">Register</button>
