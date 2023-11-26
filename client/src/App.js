@@ -1,10 +1,16 @@
 import React from "react"
-import logo from './logo.svg';
 import './App.css';
+import ProfileMenu from "./ProfileMenu";
+
+const user = {
+  name: 'Danny Boy',
+  phone: '647-696-devs',
+  email: 'DevDaddys@uwo.ca',
+  team: 'Purple Ponies'
+};
 
 function App() {
   const [data, setData] = React.useState(null);
-  // Tester
   
   //Gets data from backend
   React.useEffect(() => {
@@ -16,8 +22,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>{!data ? "Loading..." : data}</p>
+        <ProfileMenu user = {user}/>
       </header>
     </div>
   );
