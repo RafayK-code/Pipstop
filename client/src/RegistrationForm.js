@@ -9,7 +9,15 @@ const RegistrationForm = (props) => {
  // Event handler for form input changes
 const handleSubmit = (e) => {
   e.preventDefault();
-  console.log('Account Created');
+
+  const newAccount = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    phoneNumber: phoneNumber,
+  };
+
+  console.log('Account Created', newAccount);
 };
     // Perform form validation and submission logic here
     // I still need prevent default
@@ -22,7 +30,7 @@ const handleSubmit = (e) => {
         <h1>Register Now</h1>
         <label htmlFor="firstName">
           <input 
-          class="input-box" 
+          className="input-box" 
           name ="name"
           placeholder="First Name"
           value = {firstName}
@@ -32,7 +40,7 @@ const handleSubmit = (e) => {
         </label>
         <label htmlFor="lastName">
           <input 
-          class="input-box" 
+          className="input-box" 
           name = "name"
           placeholder="Last Name"
           value ={lastName}
@@ -42,7 +50,7 @@ const handleSubmit = (e) => {
         </label>
         <label htmlFor="email">
           <input
-            class="input-box" 
+            className="input-box" 
             name = "email"
             type = "email"
             placeholder="Email"
@@ -53,7 +61,7 @@ const handleSubmit = (e) => {
         </label>
         <label htmlFor ="phoneNumber">
           <input
-            input class="input-box" 
+            className="input-box" 
             type="tel" 
             name="phoneNumber" 
             placeholder="Phone Number"
@@ -62,7 +70,7 @@ const handleSubmit = (e) => {
             id = "email"
           />
         </label>
-      <button class="register-btn" type="submit">Register</button>
+      <button className="register-btn" type="submit">Register</button>
     </div>
     </form>
   );
