@@ -25,7 +25,8 @@ const handleSubmit = async (e) => {
 
     const user = await axios.post('/register', newAccount);
 
-    setResponse(`User with email: ${user.response.data} created successfully!`);
+    setResponse(`User with email: ${user.data.email} created successfully!`);
+    props.onLogin(user.data)
   }
   catch(err) {
     setResponse(err.response.data)

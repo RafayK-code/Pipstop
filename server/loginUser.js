@@ -21,7 +21,7 @@ router.post('/login', (req, res) => {
                 res.status(401).send(error.message);
             }
             else {
-                res.status(200).send(email)
+                res.status(200).send(user)
             }
         }
     })

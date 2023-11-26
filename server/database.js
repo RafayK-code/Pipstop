@@ -27,7 +27,7 @@ function insertUser(email, fname, lname, pnumber, tname, callback) {
         }
             
         else
-            callback(null, email);
+            callback(null, {email, fname, lname, pnumber});
     });
 }
 
