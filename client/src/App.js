@@ -4,7 +4,8 @@ import './App.css';
 
 function App() {
   const [data, setData] = React.useState(null);
-
+  // Tester
+  
   //Gets data from backend
   React.useEffect(() => {
     fetch("/api")
