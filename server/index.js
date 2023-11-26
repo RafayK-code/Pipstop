@@ -7,6 +7,7 @@ const path = require('path')
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get('/api', (req, res) => {
+    //Send data from database
     res.json({message: "Hello from server!"})
 })
 
