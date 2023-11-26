@@ -1,54 +1,199 @@
 #main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
   
-  .category {
-    border: 2px solid white;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    /* Add background images using CSS or <img> tags */
-  }
 
-  body{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: blueviolet;
+/* NAV BAR STUFF*/
 
-  }
-  
-  .registration-form{
-    width: 450px;
-    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
-    background: #fff;
-    padding: 20px;
-    margin: 8% auto 0;
-    text-align: center;
-  }
+body {
+  margin: 0;
+  padding: 0;
+}
 
-  .login-form{
-    width: 450px;
-    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
-    background: #fff;
-    padding: 20px;
-    margin: 8% auto 0;
-    text-align: center;
-  }
+.nav-bar {
+  background-color: #4f0dcf;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  z-index: 1000;
+}
 
-  .registration-form h1{
-    color: #6B0AF3;
-    margin-bottom: 30px;
-  }
+.navbar-links {
+  display: flex;
+  align-items: center;
+  padding: 10px
+}
 
-.input-box{
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.navbar-links a:hover {
+  background-color: #7B68EE; /* MediumSlateBlue */
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.profile-pic {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 20px; /* Adjust as needed */
+  width: 20px;
+}
+
+/* CONTENT */
+.computer-image {
+  /* Adjust the width or max-width as necessary to fit your design */
+  width: 90%;
+  max-width: 1300px;
+  margin: 20px auto 0;
+  display: block;
+  position: relative;
+  z-index: -1;
+}
+
+.content {
+  font-family: 'PT Mono', monospace;
+  position: absolute;
+  top: 50%; /* Adjust as needed */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.welcome-message {
+  font-size: 3em; /* Adjust as needed */
+  font-family: 'PT Mono', monospace;
+  color: rgb(72, 225, 131); /* Adjust as needed */
+}
+
+.event-name {
+  font-family: 'PT Mono', monospace;
+  font-size: 2em;
+  margin-top: 20px; 
+  margin-bottom: 50px;
+  color: #faf0fb;
+}
+
+.icon-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centers the icons horizontally */
+  align-items: baseline; /* Aligns the items by their baselines */
+  padding: 10px 0; /* Adds some padding at the bottom */
+  z-index: 1;
+}
+
+.icon {
+  width: 200px; /* Smaller width for icons */
+  height: auto; /* Height adjusts automatically */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-end; /* Align text to the bottom */
+  margin-bottom: 10px; /* Increase or adjust as needed to match the space in the image */
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.icon:hover {
+  color: rgba(255, 255, 255, 1);
+  filter: drop-shadow(0 5px 15px rgba(145, 92, 182, .4));
+}
+
+.icon img {
+  max-width: 100%; /* Ensure the image does not overflow its container */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 5px; /* Add space between the icon and the text */
+}
+
+.icon p {
+  margin: 0; /* Removes default margin to help with baseline alignment */
+  font-size: 1em; /* Adjust font size as needed */
+}
+
+
+
+/* REGISTRATION STUFF*/
+
+
+.category {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+html {
+  min-height:100%;
+}
+
+table {
+  border: none;
+  border-color: none;
+}
+
+body{
+  height: 100%;
+  font-family: sans-serif;
+  background-image: linear-gradient(#271287, #0C0C2C);
+}
+
+.registration-form{
+  width: 450px;
+  border-radius: 25px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255,255,255,1));
+  padding: 20px;
+  margin: 8% auto 0;
+  text-align: center;
+}
+
+.registration-form h1 {
+  color: #6B0AF3;
+  margin-bottom: 30px;
+}
+
+.input-box {
   border-radius: 20px;
   padding: 10px;
   margin: 10px 0;
@@ -57,7 +202,7 @@
   outline: none;
 }
 
-.register-btn{
+.register-btn {
   background-color: #c388ff;
   width: 50%;
   padding: 10px;
@@ -66,13 +211,225 @@
   margin: 10px 0;
   border: none;
   outline: none;
+  transition: background-color 0.3s;
+}
+
+.register-btn:hover {
+  cursor: pointer;
+  background-color: #7B68EE; 
+}
+
+.bottom-logo {
+  position: relative; /* Changed from absolute to relative */
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.bottom-logo img {
+  max-width: 10%; /* Makes sure the image is not bigger than the div */
+  height: auto; /* Maintain aspect ratio */
 }
 
 a{
   text-decoration: none;
 }
 
-.login-btn{
+
+/* HEALTH PAGE */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.challenge-container {
+  font-family: 'PT Mono', monospace;
+  width: 60%; /* Adjust width as needed */
+  margin: auto; /* Center the container */
+  color: white;
+  z-index: 2;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  background-color: rgba(255,255,255,0.8); /* Optional: for better visibility */
+  position: relative; /* Needed for absolute positioning of the image */
+}
+
+
+
+/* Style for the image container */
+.image-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+
+/* Style for the challenge image */
+.image-container .challenge-image {
+  border-radius: 50%;
+  width: 90px; /* Adjust as needed */
+  height: auto;
+  object-fit: cover;
+}
+
+/* Additional container for text to manage layout */
+.text-content {
+  text-align: left;
+}
+
+
+.back-link a:hover {
+  background-color: #7B68EE; /* MediumSlateBlue */
+}
+
+
+/* PODIUM PAGE */
+
+.podium-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Aligns the children (podiums) at the bottom */
+  height: 100vh; /* Use viewport height to ensure it takes the full height */
+  margin: 0; /* Reset any default margins */
+}
+
+.place {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Needed for absolute positioning of user-info and trophy */
+  flex: 0 0 auto; /* Do not grow or shrink */
+}
+
+/* Ensure all podium images have the same width and are aligned at the bottom */
+.podium-img {
+  width: 280px; /* Fixed width for all */
+  height: auto; /* Height is automatic to maintain aspect ratio */
+  margin-bottom: 0; /* Align to the bottom of the parent */
+}
+
+.user-info {
+  position: relative;
+  background: transparent;
+  padding: 10px 10px;
+  z-index: 2;
+  text-align: center;
+}
+
+.username {
+  color: antiquewhite;
+  font-family: 'PT-mono', monospace;
+  font-weight: bold;
+  font-size: large;
+  display: block;
+}
+
+.score {
+  color:rgb(72, 225, 131);
+  font-family: 'PT-mono', monospace;
+  font-weight: bold;
+  font-size: large;
+  display: block;
+}
+
+.trophy {
+  position: absolute;
+  left: 50%; /* Center horizontally in the container */
+  bottom: 47%; /* Adjust this value to position the trophy above the first place */
+  transform: translateX(-50%); /* Shifts the trophy to the left by half its width */
+  z-index: 3;
+}
+
+.trophy img {
+  height: 50px; /* Adjust as necessary */
+}
+
+.podium-content {
+  font-size: large;
+  font-family: 'PT Mono', monospace;
+  position: absolute;
+  top: 25%; /* Adjust as needed */
+  left: 50%;
+  transform: translate(-50%, -25%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.podium-title {
+  font-size: 3em; /* Adjust as needed */
+  font-family: 'PT Mono', monospace;
+  color: #c388ff;; /* Adjust as needed */
+}
+
+/* PROFILE STUFF*/
+
+.profile-container {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #000;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fff; 
+  text-align: left;
+  margin: 8% auto 0;
+}
+.profile-image {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+}
+
+.profile-btn {
+  background-color: #c388ff;
+  width: 50%;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 15px;
+  margin: 10px auto; 
+  border: none;
+  outline: none;
+  transition: background-color 0.3s;
+  display: block; 
+}
+
+/*  LOGIN  */
+
+.login-form{
+  width: 450px;
+  border-radius: 25px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255,255,255,1));
+  padding: 20px;
+  margin: 8% auto 0;
+  text-align: center;
+}
+
+.login-form h1 {
+  color: #6B0AF3;
+  margin-bottom: 30px;
+}
+
+.login-box {
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 90%;
+  border: 1px solid #999;
+  outline: none;
+}
+
+.login-btn {
   background-color: #c388ff;
   width: 50%;
   padding: 10px;
@@ -81,4 +438,10 @@ a{
   margin: 10px 0;
   border: none;
   outline: none;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+  background-color: #7B68EE; 
 }
