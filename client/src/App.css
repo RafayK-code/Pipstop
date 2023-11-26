@@ -237,39 +237,49 @@ a{
 
 
 /* HEALTH PAGE */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
 
 .challenge-container {
   font-family: 'PT Mono', monospace;
-  display: flex; /* Align children (image and text) in a row */
-  align-items: center; /* Center-align children vertically */
-  position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust for precise centering */
+  width: 60%; /* Adjust width as needed */
+  margin: auto; /* Center the container */
   color: white;
-  z-index: 2; /* Ensure it is above the background pane */
-  /* Set a minimum width if necessary, or adjust padding/margins to ensure layout fits */
-  }
+  z-index: 2;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  background-color: rgba(255,255,255,0.8); /* Optional: for better visibility */
+  position: relative; /* Needed for absolute positioning of the image */
+}
+
+
 
 /* Style for the image container */
 .image-container {
-  float: left; /* Float the image to the left */
-  margin-right: 20px; /* Add some space between the image and the text */
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
+
 
 /* Style for the challenge image */
 .image-container .challenge-image {
-  border-radius: 50%; /* Make the image round */
-  width: 200px; /* Increase the width for a larger image */
-  height: 200px; /* Increase the height to match the width */
-  object-fit: cover; /* Ensure the image covers the round area */
+  border-radius: 50%;
+  width: 90px; /* Adjust as needed */
+  height: auto;
+  object-fit: cover;
 }
 
 /* Additional container for text to manage layout */
 .text-content {
-  text-align: left; /* Align the text to the left */
-  flex-grow: 1; /* Allow the text container to take up remaining space */
+  text-align: left;
 }
+
 
 .back-link a:hover {
   background-color: #7B68EE; /* MediumSlateBlue */
@@ -353,4 +363,85 @@ a{
   font-size: 3em; /* Adjust as needed */
   font-family: 'PT Mono', monospace;
   color: #c388ff;; /* Adjust as needed */
+}
+
+/* PROFILE STUFF*/
+
+.profile-container {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #000;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fff; 
+  text-align: left;
+  margin: 8% auto 0;
+}
+.profile-image {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+}
+
+.profile-btn {
+  background-color: #c388ff;
+  width: 50%;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 15px;
+  margin: 10px auto; 
+  border: none;
+  outline: none;
+  transition: background-color 0.3s;
+  display: block; 
+}
+
+/*  LOGIN  */
+
+.login-form{
+  width: 450px;
+  border-radius: 25px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255,255,255,1));
+  padding: 20px;
+  margin: 8% auto 0;
+  text-align: center;
+}
+
+.login-form h1 {
+  color: #6B0AF3;
+  margin-bottom: 30px;
+}
+
+.login-box {
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 90%;
+  border: 1px solid #999;
+  outline: none;
+}
+
+.login-btn {
+  background-color: #c388ff;
+  width: 50%;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 15px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+  background-color: #7B68EE; 
 }

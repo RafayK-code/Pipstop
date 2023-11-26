@@ -13,7 +13,7 @@ const Navbar = (props) => {
     }
 
     return (
-        <Router>
+        <>
         <div class="nav-bar">
             <Link to="/">
                 <img src={process.env.PUBLIC_URL + '/media/pipstop_logo_white.svg'} alt="logo" class="logo" style={logoStyle}/>
@@ -28,10 +28,7 @@ const Navbar = (props) => {
                 </div>
             </div>
         </div>
-            <Routes>
-                <Route path='/' element={<Home user={props.user} />} />
-            </Routes>
-        </Router>
+        </>
     );
 }
 

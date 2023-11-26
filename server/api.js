@@ -1,6 +1,6 @@
 const path = require('path');
 
-require('dotenv').config({path:__dirname + '../.env'});
+require('dotenv').config({path:__dirname + '/../.env'});
 
 const { Infobip, AuthType } = require('@infobip-api/sdk');
 
