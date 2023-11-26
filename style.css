@@ -131,6 +131,11 @@ body {
   margin-right: 50px;
 }
 
+.icon:hover {
+  color: rgba(255, 255, 255, 1);
+  filter: drop-shadow(0 5px 15px rgba(145, 92, 182, .4));
+}
+
 .icon img {
   max-width: 100%; /* Ensure the image does not overflow its container */
   height: auto; /* Maintain aspect ratio */
