@@ -1,15 +1,13 @@
 import React from "react"
 import './App.css';
 import RegistrationForm from "./RegistrationForm";
-
-import axios from 'axios';
+import LoginForm from "./LoginForm"
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <RegistrationForm />
-        <p>{!RegistrationForm.response ? '' : RegistrationForm.response}</p>
+        <LoginForm></LoginForm>
       </header>
     </div>
   );

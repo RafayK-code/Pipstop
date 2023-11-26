@@ -14,7 +14,7 @@ router.post('/register', (req, res) => {
         }
 
         else {
-            res.status(200).json({message: user});
+            res.status(200).send(user);
         }
     })
 })
