@@ -240,49 +240,54 @@ a{
 .main-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* This will center the .svg-and-avatar-container vertically */
   min-height: 100vh;
-  position: relative;
+  position: relative; /* Needed for absolute positioning of children */
 }
 
-.challenge-container {
-  font-family: 'PT Mono', monospace;
-  width: 60%; /* Adjust width as needed */
-  margin: auto; /* Center the container */
-  color: white;
-  z-index: 2;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-  background-color: rgba(255,255,255,0.8); /* Optional: for better visibility */
-  position: relative; /* Needed for absolute positioning of the image */
+.svg-and-avatar-container {
+  position: absolute; /* This will be centered due to flexbox on .main-container */
+  width: 60%; /* Width of the SVG pane */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* This will center the SVG pane */
 }
 
+.challenge-pane {
+  width: 100%; /* SVG takes the full width of its container */
+  height: auto; /* Maintain aspect ratio */
+}
 
-
-/* Style for the image container */
-.image-container {
+.avatar-image {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 40px; /* Position from the top of the .svg-and-avatar-container */
+  right: 40px; /* Position from the right of the .svg-and-avatar-container */
+  width: 250px; /* Adjust as needed */
+  height: 250px; /* Adjust as needed */
+  border-radius: 50%; /* Circular avatar */
 }
 
-
-/* Style for the challenge image */
-.image-container .challenge-image {
-  border-radius: 50%;
-  width: 90px; /* Adjust as needed */
-  height: auto;
-  object-fit: cover;
-}
-
-/* Additional container for text to manage layout */
 .text-content {
+  position: absolute;
+  top: 40%; /* Center vertically inside the .svg-and-avatar-container */
+  left: 360px; /* Align to the left side of the .svg-and-avatar-container */
+  transform: translateY(-50%); /* Center the text vertically */
+  width: 100%; /* The text content spans the full width of the SVG pane */
+  color: white;
   text-align: left;
 }
 
+.back-link {
+  position: relative;
+  top: -95px; /* Align to the top of the .svg-and-avatar-container */
+  left: -50px; /* Align to the left side of the .svg-and-avatar-container */
+  color: white;
+}
 
-.back-link a:hover {
-  background-color: #7B68EE; /* MediumSlateBlue */
+.back-link:hover {
+  color: #c388ff; /* Change the color on hover */
+  text-decoration: underline; /* Underline the text to indicate it's clickable */
+  /* Add any other hover styles you wish to apply */
 }
 
 
@@ -338,7 +343,7 @@ a{
 .trophy {
   position: absolute;
   left: 50%; /* Center horizontally in the container */
-  bottom: 47%; /* Adjust this value to position the trophy above the first place */
+  bottom: 50%; /* Adjust this value to position the trophy above the first place */
   transform: translateX(-50%); /* Shifts the trophy to the left by half its width */
   z-index: 3;
 }
