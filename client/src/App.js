@@ -5,7 +5,7 @@ import RegistrationForm from "./RegistrationForm";
 
 function App() {
   const [data, setData] = React.useState(null);
-  
+
   //Gets data from backend
   React.useEffect(() => {
     fetch("/api")
