@@ -6,6 +6,7 @@ const path = require('path')
 const database = require('./database')
 
 const registerUserRouter = require('./registerUser');
+const loginUserRouter = require('./loginUser');
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.use(express.json());
@@ -16,5 +17,6 @@ app.get('/api', (req, res) => {
 })
 
 app.use(registerUserRouter);
+app.use(loginUserRouter);
 
 app.listen(port, () => console.info('Listening on port', port))

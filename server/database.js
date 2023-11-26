@@ -6,7 +6,7 @@ const db = new sqlite.Database(path.resolve(__dirname, './pipstop.db'), sqlite.O
         return console.error(err);
 });
 
-function checkUserByEmail(email, callback) {
+function getUser(email, callback) {
     db.get('SELECT * FROM user WHERE email = ?', [email], (err, row) => {
         if (err)
             callback(err, null);
@@ -27,11 +27,11 @@ function insertUser(email, fname, lname, pnumber, tname, callback) {
         }
             
         else
-            callback(null, email);
+            callback(null, {email, fname, lname, pnumber});
     });
 }
 
 module.exports = {
-    checkUserByEmail,
+    getUser,
     insertUser
 }

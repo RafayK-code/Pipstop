@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/RafayK-code/Pipstop#readme",
   "dependencies": {
+    "@infobip-api/sdk": "^0.3.2",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "path": "^0.12.7",
     "sqlite3": "^5.1.6"

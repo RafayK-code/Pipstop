@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const database = require('./database')
+const database = require('./database');
+const api = require('./api');
 
 router.post('/register', (req, res) => {
     const { email, firstName, lastName, phoneNumber, teamName } = req.body;
@@ -14,7 +15,8 @@ router.post('/register', (req, res) => {
         }
 
         else {
-            res.status(200).json({message: user});
+            api.sendThankYouSMS(phoneNumber);
+            res.status(200).send(user);
         }
     })
 })
