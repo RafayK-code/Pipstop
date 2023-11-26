@@ -5,8 +5,8 @@ require('dotenv').config({path:__dirname + '../.env'});
 const { Infobip, AuthType } = require('@infobip-api/sdk');
 
 const infobip = new Infobip ({
-    baseUrl: process.env.INFOBIP_BASE_URL,
-    apiKey: process.env.INFOBIP_API_KEY,
+    baseUrl: 'qyp1k2.api.infobip.com',
+    apiKey: 'aadfc05fef9fa9e8327ba53a5eb65ab6-86455dbf-80b6-4c9f-bc0e-7dcd31e6e84a',
     authType: AuthType.ApiKey,
 })
 
