@@ -132,8 +132,8 @@ const server = http.createServer((req, res) => {
             case '/profile':
                 filePath = 'profile.html';
                 break;
-            case '/leaderboard':
-                filePath = 'leaderboard.html';
+            case '/podium':
+                filePath = 'podium.html';
                 break;
             case '/login':
                 filePath = 'login.html';
