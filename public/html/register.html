@@ -10,15 +10,16 @@
     <div class="registration-form">
         <h1>Register Now</h1>
         <form action="/register" method="post">
-            <input class="input-box" type="first name" placeholder="First Name" /> 
-            <input class="input-box" type="last name" placeholder="Last Name" /> 
+            <input class="input-box" type="first name" placeholder="First Name" required/> 
+            <input class="input-box" type="last name" placeholder="Last Name" required/> 
             <input class="input-box" type="tel" name="phoneNumber" placeholder="Phone Number" required /> 
-            <input class="input-box" type="email" placeholder="Email" /> 
+            <input class="input-box" type="email" placeholder="Email" required/> 
+            <p><span><input type="checkbox" name="terms" required></span>I agree to the<a href="/terms"> terms and conditions</a></p>
             <a href="/index"><button class="register-btn" type="submit">Register</button></a>
             <hr>
-            <p></p>
+            <p class="already-have">Already have an account? <a href="/login">sign in</a></p>
         </form>
     </div>
-    //ggggg
+
 </body>
 </html>

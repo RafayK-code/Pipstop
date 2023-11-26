@@ -29,6 +29,22 @@ function sendThankYouSMS(phoneNumber) {
     });
 }
 
+function sendWelcomeBackSMS(phoneNumber){
+    infobip.channels.sms.send({
+        messages: [
+            {
+                destinations: [{ to: phoneNumber }],
+                from: 'Pipstop', 
+                text: 'Welcome back!!'
+            }
+        ]
+    }).then(response => {
+        console.log('SMS sent successfully:', response);
+    }).catch(error => {
+        console.error('Error sending SMS:', error);
+    });
+}
+
 
 const server = http.createServer((req, res) => {
     if (req.url === '/register' && req.method === 'POST') {
@@ -49,6 +65,27 @@ const server = http.createServer((req, res) => {
 
         });
         return;
+    } else if (req.url === '/login' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', () => {
+            const parsedBody = new URLSearchParams(body);
+            const email = parsedBody.get('email');
+
+            const userPhoneNumber = 'sophiatong113@gmail.com';
+
+            if (userPhoneNumber) {
+                sendWelcomeBackSMS('16478017132');
+                res.writeHead(302, { 'Location': '/welcome-back' }); // Redirect to a welcome back page or dashboard
+            } else {
+                res.writeHead(401, { 'Content-Type': 'text/html' });
+                res.end('Invalid credentials');
+            }
+        });
+        return;
+    
     } else {
         // Define the file path based on the URL
         let filePath = 'register.html'; // Default file path
@@ -76,6 +113,12 @@ const server = http.createServer((req, res) => {
                 break;
             case '/leaderboard':
                 filePath = 'leaderboard.html';
+                break;
+            case '/login':
+                filePath = 'login.html';
+                break;
+            case '/terms':
+                filePath = 'terms.html';
                 break;
         }
 
