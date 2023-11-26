@@ -1,7 +1,7 @@
 PRAGMA foreign_keys = ON;
 
-DROP TABLE IF EXISTS team;
 DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS team;
 
 CREATE TABLE team (
     teamname TEXT NOT NULL,

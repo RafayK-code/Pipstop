@@ -4,20 +4,17 @@ const router = express.Router();
 const database = require('./database')
 
 router.post('/register', (req, res) => {
-    const userEmail = req.body.email;
-    const userFname = req.body.firstName;
-    const userLname = req.body.lastName;
-    const userPNumber = req.body.phoneNumber;
-    const userTeamName = req.body.teamName;
+    const { email, firstName, lastName, phoneNumber, teamName } = req.body;
 
-    database.insertUser(userEmail, userFname, userLname, userPNumber, userTeamName, (err, user) => {
+    database.insertUser(email, firstName, lastName, phoneNumber, teamName, (err, user) => {
         if (err) {
-            const error = new Error(err.message);
-            res.status(500).json({error: error.message});
+            const error = new Error(err);
+            console.log(error.message);
+            res.status(401).send(error.message);
         }
 
         else {
-            res.status(200).json({email: user});
+            res.status(200).json({message: user});
         }
     })
 })
