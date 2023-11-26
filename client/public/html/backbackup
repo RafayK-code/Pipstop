@@ -1,0 +1,115 @@
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const port = 3000;
+require('dotenv').config({path: './api.env'});
+const { Infobip } = require('@infobip-api/sdk');
+const {AuthType} = require('@infobip-api/sdk');
+
+
+
+// Setup Infobip
+const infobip = new Infobip({
+    baseUrl: process.env.INFOBIP_BASE_URL,
+    apiKey: process.env.INFOBIP_API_KEY,
+    authType: AuthType.ApiKey,
+});
+
+// Function to send SMS using Infobip API
+function sendSMS(data, callback) {
+    infobip.channels.sms.send({
+        messages: [
+            {
+                destinations: [{ to: data.to }],
+                from: '16478017132', // Replace with your number
+                text: data.text
+            }
+        ]
+    }).then(response => {
+        callback(null, response);
+    }).catch(error => {
+        callback(error);
+    });
+}
+
+const server = http.createServer(function(req, res) {
+    if (req.url === '/send-sms' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', () => {
+            const smsData = JSON.parse(body);
+            sendSMS(smsData, (error, apiResponse) => {
+                if (error) {
+                    res.writeHead(500);
+                    res.end('Error sending SMS');
+                } else {
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(apiResponse);
+                }
+            });
+        });
+        return; // This return is crucial to ensure no further processing for this request
+    }
+    if (req.url === '/register' && req.method === 'POST') {
+        res.writeHead(302, { 'Location': '/index' });
+        res.end();
+        return;
+    }
+
+
+    // Determine the file path and content type
+    let filePath = path.join(__dirname, 'register.html');  
+    let contentType = 'text/html';
+
+    if (req.url === '/style.css') {
+        filePath = path.join(__dirname, 'style.css');
+        contentType = 'text/css';
+    } else if (req.url === '/index') {
+        filePath = path.join(__dirname, 'index.html');
+    } else if (req.url === '/health') {
+        filePath = path.join(__dirname, 'health.html');
+    } else if (req.url === '/social') {
+        filePath = path.join(__dirname, 'social.html');
+    } else if (req.url === '/funandgames') {
+        filePath = path.join(__dirname, 'funandgames.html');
+    } else if (req.url === '/profile') {
+        filePath = path.join(__dirname, 'profile.html');
+    } else if (req.url === '/leaderboard') {
+        filePath = path.join(__dirname, 'leaderboard.html');
+    }
+
+    // Read and serve the requested file
+    fs.readFile(filePath, function(error, data) {
+        if (error) {
+            res.writeHead(404);
+            res.write('Error: File Not Found');
+            res.end();
+        } else {
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.write(data);
+            res.end();
+        }
+    });
+});
+
+const testSmsData = {
+    to: "+16478017132", // Example number, replace with a valid number
+    text: "Sophia you are a genius"
+};
+
+console.log("Test SMS Data:", testSmsData);
+
+sendSMS(testSmsData, (error, response) => {
+    if (error) {
+        console.error('Error sending SMS:', error);
+    } else {
+        console.log('SMS sent successfully:', response);
+    }
+});
+
+server.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
+
