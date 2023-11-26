@@ -47,6 +47,7 @@ function sendWelcomeBackSMS(phoneNumber){
 
 
 const server = http.createServer((req, res) => {
+   
     if (req.url === '/register' && req.method === 'POST') {
         let body = '';
         req.on('data', chunk => {
@@ -85,7 +86,27 @@ const server = http.createServer((req, res) => {
             }
         });
         return;
+
     
+    } else if (req.url.startsWith('/images/')) {
+        const filePath = path.join(__dirname, req.url);
+        const fileExt = path.extname(filePath);
+        let contentType = 'text/plain';
+
+        if (fileExt === '.svg') {
+            contentType = 'image/svg+xml';
+        }
+
+        fs.readFile(filePath, (error, content) => {
+            if (error) {
+                res.writeHead(404, { 'Content-Type': 'text/html' });
+                res.end('404: File Not Found');
+            } else {
+                res.writeHead(200, { 'Content-Type': contentType });
+                res.end(content);
+            }
+        });
+        
     } else {
         // Define the file path based on the URL
         let filePath = 'register.html'; // Default file path
