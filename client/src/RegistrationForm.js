@@ -8,17 +8,11 @@ const RegistrationForm = () => {
     confirmPassword: '',
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
   const handleSubmit = (e) => {
-    e.preventDefault();
     // Perform form validation and submission logic here
+    // I still need prevent default
+    //Take the form and build a json object
+    // Submit in post using axios
     console.log('Form submitted:', formData);
   };
 
@@ -29,37 +23,30 @@ const RegistrationForm = () => {
         <label>
           <input 
           class="input-box" 
-          type="first name"
+          type="text"
           placeholder="First Name"
-          value={formData.username}
-          onChange={handleChange}
           />
         </label>
         <label>
           <input 
           class="input-box" 
-          type="last name" 
+          type="text" 
           placeholder="Last Name"
-          value={formData.username}
-          onChange={handleChange}
           />
         </label>
         <label>
           <input
             class="input-box" 
-            type="email" 
+            type="text" 
             placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
           />
         </label>
         <label>
           <input
-            input class="input-box" type="tel" name="phoneNumber" 
+            input class="input-box" 
+            type="text" name="phoneNumber" 
             placeholder="Phone Number" 
             required
-            value={formData.password}
-            onChange={handleChange}
           />
         </label>
       <button class="register-btn" type="submit">Register</button>
