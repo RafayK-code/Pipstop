@@ -54,7 +54,7 @@ const handleSubmit = (e) => {
         <label htmlFor ="phoneNumber">
           <input
             input class="input-box" 
-            type="phoneNumber" 
+            type="tel" 
             name="phoneNumber" 
             placeholder="Phone Number"
             value={phoneNumber}
