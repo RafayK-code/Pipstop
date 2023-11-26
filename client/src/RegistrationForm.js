@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import LoginForm from './LoginForm';
+
 const RegistrationForm = (props) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -33,10 +36,6 @@ const handleSubmit = async (e) => {
   }
   
 };
-    // Perform form validation and submission logic here
-    // I still need prevent default
-    //Take the form and build a json object
-    // Submit in post using axios
 
   return (
     <form onSubmit={handleSubmit}>
@@ -96,7 +95,13 @@ const handleSubmit = async (e) => {
           />
         </label>
       <button className="register-btn" type="submit">Register</button>
-      <h1>{!response ? '' : response}</h1>
+      <p class='already-have'>{!response ? '' : response}</p>
+      <p class="already-have">Already have an account? 
+        <Link to='/login'>sign in</Link>
+      </p>
+      <Routes>
+        <Route path='/login' element={<LoginForm onLogin={props.onLogin} />}/>
+      </Routes>
     </div>
     </form>
   );
