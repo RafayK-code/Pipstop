@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "build": "npm install express && npm install path"
+    "build": "npm install express && npm install path && sqlite3 server/pipstop.db '.read server/initdb.sql'"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/RafayK-code/Pipstop#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sqlite3": "^5.1.6"
   }
 }
